@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    justify-content: center; 
+            align-items: center; 
+    height: 100vh;
+  }
+
+  /* This will hold your buttons */
+  .buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 15rem;
+    top: 40%;        
+  }
+  #timer{
+    display:flex;
+    
+  }
+  #timer p {
+    margin:3px;
+    padding:1px;
+
+  }
+  .white-1e1d7{
+    background-color: #EBECD0 !important;
+  }
+  .black-3c85d{
+    background-color: #739552 !important;
+  }
+  
+/* Light squares → Dark text */
+.white-1e1d7 .notation-322f9{
+color: #739552 !important;
+}
+
+/* Dark squares → Light text */
+.black-3c85d .notation-322f9 {
+color: #EBECD0 !important;
+}
+#boardContainer {
+ 
+  min-width: 300px; 
+  min-height: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
