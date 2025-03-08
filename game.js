@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {})
 document.addEventListener("DOMContentLoaded", () => {
 //FOR RESPONSIVE BOARD
 function updateBoardSize() {
@@ -51,7 +52,7 @@ function stopTimer() {
   if (timerInterval) clearInterval(timerInterval);
 }
 
-let displayTime = 5;
+let displayTime = 2;
 let isPlaying = false;
 let lastShownPosition;
 
