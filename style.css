@@ -72,3 +72,28 @@ button:hover {
 .btn-primary:active {
   background-color: #e84855 !important;
 }
+.timer-difficulty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 180px; /* Fixed width to prevent shifting */
+  min-height: 80px; /* Keeps height stable */
+  text-align: center;
+  margin-top:1rem;
+  margin-left:0.5rem;
+}
+
+#difficulty p {
+  width: 100%; /* Ensures it fits inside the fixed container */
+  text-align: center;
+  margin-top:1rem;
+  white-space: nowrap; /* Stops text from breaking into multiple lines */
+}
+
+#difficulty button {
+  width: 100%; /* Makes sure button size is predictable */
+  margin-top:1rem;
+
+}
+

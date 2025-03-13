@@ -16,17 +16,33 @@
       integrity="sha384-q94+BZtLrkL1/ohfjR8c6L+A6qzNH9R2hBLwyoAfu3i/WCvQjzL2RQJ3uNHDISdU"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
       <div class="buttons-container">
-        <button class="btn btn-primary vertical-btn mx-3 my-4" id="newPos">New Position</button>
-        <button class="btn btn-primary vertical-btn mx-3 my-4" id="sendPos">Send Position</button>
+        <button class="btn btn-primary vertical-btn mx-3 my-4" id="newPos">
+          New Position
+        </button>
+        <button class="btn btn-primary vertical-btn mx-3 my-4" id="sendPos">
+          Send Position
+        </button>
       </div>
 
-      <div id="boardContainer" style="width: 480px;"></div>
-      <span id="timer"><p>Time Elapsed: </p> <p id="seconds"> 0</p></div>
+      <div id="boardContainer" style="width: 480px"></div>
+      <div class="timer-difficulty-container">
+        <span id="timer">
+          <p>Time Elapsed:</p>
+          <p id="seconds">0</p>
+        </span>
+      
+        <span id="difficulty">
+          <button class="btn btn-primary" onclick="toggleDifficulty()">
+            Increase Difficulty
+          </button>
+          <p>Difficulty: Easy</p>
+        </span>
+      </div>
     </div>
 
     <script
