@@ -2,7 +2,8 @@ let difficulty = 0;
 let displayTime = 5;
 const PORT = 5000;
 const API_URL = window.location.hostname === "localhost"
-? `http://localhost:${PORT}/api` : "DOMAIN/api"; // DOMAIN ALINCA BURAYI DEGIS
+              ||  window.location.hostname === "127.0.0.1"
+              ? `http://localhost:${PORT}/api` : "DOMAIN/api"; // DOMAIN ALINCA BURAYI DEGIS
 document.addEventListener("DOMContentLoaded", () => {
   //FOR RESPONSIVE BOARD
   function updateBoardSize() {
@@ -26,17 +27,22 @@ document.addEventListener("DOMContentLoaded", () => {
     pieceTheme: "images/fresca/{piece}.svg",
   });
 
-  //async to not freeze with big fen csvs
+  //GET FEN FROM DB AND SET
   async function setRandomFEN() {
     try{
-   const response = await fetch(`${API_URL}/positions/random?difficulty=${difficulty}`);
+      const url = `${API_URL}/positions/random?difficulty=${difficulty}`;
+   const response = await fetch(url);
    if(!response.ok){
+    console.log(`url: ${url}`);
+    console.log(`WLHname = ${window.location.hostname}`); 
     throw new Error("No response from server");
+
    }
    const data = await response.json();
    if(data&&data.fen){
-    bıard.position(data.fen);
-    console.log(`New FEN loaded: ${FEN}`);
+    board.position(data.fen);
+    console.log(`New FEN loaded: ${data.fen}`);
+    return data.fen;
 
    }
   }
@@ -108,13 +114,12 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("notplaying rn");
       return;
     }
-    console.log(board.fen());
-    console.log(lastShownPosition);
-    if (board.fen().split(" ")[0] === lastShownPosition) {
-      showFeedback(tick);
-    } else {
-      showFeedback(cross);
-    }
+    
+    console.log(`Given FEN: ${board.fen().split(" ")[0]}`);
+    console.log(`Got FEN: ${lastShownPosition.split(" ")[0]}`);
+    const isSuccess = board.fen().split(" ")[0]===lastShownPosition.split(" ")[0];
+    console.log(`isSuccess: ${isSuccess}`);
+    isSuccess ? showFeedback(tick) : showFeedback(cross);
   }); 
 
   function showFeedback(imgPath) {
